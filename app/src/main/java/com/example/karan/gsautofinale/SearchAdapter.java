@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,21 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             }
         });
 
-//
-//               holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Toast.makeText(context, "item - " + model.getCode(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(context,SearchDetail.class);
-//                intent.putExtra("Code",productModels.get(position).getCode());
-//                intent.putExtra("Size",productModels.get(position).getSize());
-//                intent.putExtra("Model",productModels.get(position).getModel());
-//                intent.putExtra("Price",productModels.get(position).getPrice());
-//                context.startActivity(intent);
-//            }
-//        });
+
 
     }
 
@@ -70,7 +57,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return productModels.size();
     }
 
-    public static class SearchViewHolder extends RecyclerView.ViewHolder{
+    public static class SearchViewHolder extends RecyclerView.ViewHolder implements OnItemClickListener{
 
         TextView tvCode,tvSize,tvModel,tvPrice;
         CardView cardView;
@@ -99,5 +86,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             pricee.setText(Price);
         }
 
+        @Override
+        public void onItemClick(int pos) {
+
+        }
     }
+
+    public interface OnItemClickListener {
+        void onItemClick(int pos);
+    }
+
 }

@@ -126,11 +126,12 @@ public class SearchActivity extends AppCompatActivity {
 
                progressDialog.dismiss();
                viewHolder.setDetails(model.getCode(),model.getSize(),model.getModel(),model.getPrice());
-
+               final String single_view = getRef(position).getKey();
                viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
                        Intent intent = new Intent(SearchActivity.this,SearchDetail.class);
+                       intent.putExtra("single_view",SearchDetail.class);
 
                        startActivity(intent);
                    }
